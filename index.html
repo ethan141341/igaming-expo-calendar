@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iGaming 展會通行證</title>
+<meta name="description" content="2026年9月至2027年12月全球 iGaming 旗艦展與主要品牌區域場清單，官方連結一鍵直達。">
+<style>
+  body { margin: 0; }
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #14192b;
+    --ink-soft: #4a5068;
+    --ink-faint: #8a8fa3;
+    --line: #e2e4ea;
+    --line-strong: #cbced9;
+    --accent: #a97a2f;
+    --confirmed: #2f8f6b;
+    --confirmed-bg: #e5f3ec;
+    --tbc: #b4791f;
+    --tbc-bg: #f7ecd9;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14161c; --surface: #1b1e27; --ink: #edeff5; --ink-soft: #a8adc0;
+      --ink-faint: #6b7086; --line: #2a2e3a; --line-strong: #383d4c; --accent: #e3b45d;
+      --confirmed: #4fbe95; --confirmed-bg: #163229; --tbc: #e0a344; --tbc-bg: #332510;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14161c; --surface: #1b1e27; --ink: #edeff5; --ink-soft: #a8adc0;
+    --ink-faint: #6b7086; --line: #2a2e3a; --line-strong: #383d4c; --accent: #e3b45d;
+    --confirmed: #4fbe95; --confirmed-bg: #163229; --tbc: #e0a344; --tbc-bg: #332510;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "IBM Plex Sans", "Noto Sans TC", system-ui, sans-serif;
+    padding-inline: 20px; padding-block: 24px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .wrap { width: 100%; max-width: 920px; display: flex; flex-direction: column; gap: 22px; }
+  h1 { text-wrap: balance; margin: 0; font-family: "Archivo", "Noto Sans TC", sans-serif; font-size: clamp(26px, 4vw, 34px); font-weight: 800; letter-spacing: -0.01em; }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .sub { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; line-height: 1.55; }
+  .snapshot-note { font-size: 12.5px; color: var(--ink-faint); border: 1px dashed var(--line); border-radius: 8px; padding: 8px 12px; }
+  .toolbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; background: var(--bg); padding-block: 8px; border-bottom: 1px solid var(--line); }
+  .search { flex: 1 1 200px; display: flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; }
+  .search input { border: none; outline: none; background: transparent; color: var(--ink); font-size: 14px; width: 100%; font-family: inherit; }
+  .search svg { flex-shrink: 0; color: var(--ink-faint); }
+  .chip-toggle { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft); border-radius: 999px; padding: 8px 13px; font-size: 13px; cursor: pointer; white-space: nowrap; font-family: inherit; }
+  .chip-toggle:hover { border-color: var(--line-strong); }
+  .chip-toggle.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .month-group { display: flex; flex-direction: column; gap: 10px; }
+  .month-label { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.08em; color: var(--ink-faint); text-transform: uppercase; padding-top: 6px; border-top: 1px solid var(--line); }
+  .month-group:first-of-type .month-label { border-top: none; padding-top: 0; }
+  .row { display: grid; grid-template-columns: 96px 1fr auto; gap: 16px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 13px 14px; position: relative; overflow: hidden; }
+  .row.flagship { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+  .row.flagship::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--accent); }
+  .row.past { opacity: 0.5; }
+  .datecol { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; font-size: 13px; color: var(--ink-soft); line-height: 1.35; display: flex; flex-direction: column; gap: 3px; }
+  .datecol .d { font-weight: 600; color: var(--ink); font-size: 14px; }
+  .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; padding: 2px 7px; border-radius: 5px; width: fit-content; }
+  .badge.confirmed { background: var(--confirmed-bg); color: var(--confirmed); }
+  .badge.tbc { background: var(--tbc-bg); color: var(--tbc); }
+  .maincol { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  .name-line { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+  .name-line .name { font-weight: 700; font-size: 15.5px; letter-spacing: -0.005em; }
+  .flag-tag { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 1px 5px; }
+  .loc { font-size: 13px; color: var(--ink-soft); }
+  .note { font-size: 12px; color: var(--ink-faint); margin-top: 2px; line-height: 1.4; }
+  .actions { display: flex; gap: 6px; align-items: center; }
+  .icon-btn { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft); text-decoration: none; }
+  .icon-btn:hover { background: var(--line); color: var(--ink); }
+  .empty { text-align: center; color: var(--ink-faint); font-size: 14px; padding: 48px 20px; border: 1px dashed var(--line); border-radius: 12px; }
+  @media (max-width: 560px) {
+    .row { grid-template-columns: 1fr; gap: 8px; }
+    .datecol { flex-direction: row; gap: 8px; align-items: center; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">iGaming Industry Circuit · 2026–2027</div>
+    <h1>全球 iGaming 展會通行證</h1>
+    <p class="sub">2026 年 9 月至 2027 年 12 月全球 iGaming 旗艦展與主要品牌（SiGMA / SBC / Affiliate World）區域場清單，官方連結一鍵直達。</p>
+  </header>
+
+  <div class="toolbar">
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="search" placeholder="搜尋展會名稱或地點…" autocomplete="off">
+    </div>
+    <button class="chip-toggle" id="toggle-flagship" type="button">★ 只看旗艦展</button>
+    <button class="chip-toggle active" id="toggle-past" type="button">隱藏已結束</button>
+  </div>
+
+  <main id="list"></main>
+
+  <p class="snapshot-note">此為唯讀分享快照，資料更新於 2026-09-16（台北時間）。這份清單會持續維護，若需要最新版本歡迎跟提供連結的人索取。</p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var EVENTS = [
+    {"name":"SiGMA North America 2026","dateStart":"2026-09-01","dateEnd":"2026-09-03","location":"Mexico City, Mexico","url":"https://sigma.world/summits/north-america/","flagship":false,"confirmed":true},
+    {"name":"Affiliate World Americas (Cancún) 2026","dateStart":"2026-09-07","dateEnd":"2026-09-08","location":"Cancún, Mexico","url":"https://affiliateworldconferences.com/americas","flagship":false,"confirmed":true},
+    {"name":"G2E（Global Gaming Expo）Las Vegas 2026","dateStart":"2026-09-28","dateEnd":"2026-10-01","location":"Las Vegas, USA","url":"https://www.globalgamingexpo.com/","flagship":true,"confirmed":true},
+    {"name":"SBC Summit Lisbon 2026","dateStart":"2026-09-29","dateEnd":"2026-10-01","location":"Lisbon, Portugal","url":"https://sbcevents.com/sbc-summit/","flagship":true,"confirmed":true},
+    {"name":"SBC Summit Tbilisi","dateStart":"2026-10-19","dateEnd":null,"location":"Tbilisi, Georgia","url":"https://sbcevents.com/","flagship":false,"confirmed":true},
+    {"name":"SiGMA World Rome 2026","dateStart":"2026-11-02","dateEnd":"2026-11-05","location":"Rome, Italy","url":"https://sigma.world/summits/world/","flagship":true,"confirmed":true,"note":"首次移師義大利，SiGMA 全球歐洲旗艦展"},
+    {"name":"SiGMA South Asia","dateStart":"2026-11-30","dateEnd":"2026-12-02","location":"Colombo, Sri Lanka","url":"https://sigma.world/","flagship":false,"confirmed":true,"note":"官網確認地點為 Lumina Ballroom, Cinnamon Life"},
+    {"name":"ICE Barcelona 2027","dateStart":"2027-01-18","dateEnd":"2027-01-20","location":"Barcelona, Spain","url":"https://www.icegaming.com/","flagship":true,"confirmed":true,"note":"全球最大 iGaming 旗艦展"},
+    {"name":"iGB Affiliate Barcelona 2027","dateStart":"2027-01-19","dateEnd":"2027-01-20","location":"Barcelona, Spain","url":"https://barcelona.igbaffiliate.com/","flagship":true,"confirmed":true},
+    {"name":"SiGMA Africa 2027","dateStart":"2027-02-15","dateEnd":"2027-02-17","location":"Cape Town, South Africa","url":"https://sigma.world/summits/africa/","flagship":false,"confirmed":false,"note":"日期來源不一致（另有 3/10–12 的說法），以官網為準"},
+    {"name":"SBC Summit Rio 2027","dateStart":"2027-03-02","dateEnd":"2027-03-04","location":"Rio de Janeiro, Brazil","url":"https://sbcevents.com/","flagship":true,"confirmed":true},
+    {"name":"BiS SiGMA South America 2027","dateStart":"2027-04-05","dateEnd":"2027-04-08","location":"São Paulo, Brazil","url":"https://sigma.world/summits/south-america/","flagship":false,"confirmed":true},
+    {"name":"SBC Summit Europe 2027（原 SBC Summit Malta）","dateStart":"2027-04-19","dateEnd":"2027-04-21","location":"Amsterdam, Netherlands (RAI Amsterdam)","url":"https://sbcevents.com/","flagship":true,"confirmed":true,"note":"2027 起由 SBC Summit Malta 改名並移師阿姆斯特丹"},
+    {"name":"SiGMA Europe Malta 2027","dateStart":"2027-05-03","dateEnd":"2027-05-05","location":"Ta' Qali, Malta (MFCC)","url":"https://sigma.world/","flagship":false,"confirmed":true,"note":"與 SBC Summit Europe（阿姆斯特丹）是兩個不同活動"},
+    {"name":"G2E Asia 2027","dateStart":"2027-05-18","dateEnd":"2027-05-20","location":"Macau","url":"https://www.g2easia.com/","flagship":true,"confirmed":true},
+    {"name":"SiGMA Asia 2027","dateStart":"2027-06-01","dateEnd":null,"dateLabel":"6月（確切日期待公布）","location":"Manila, Philippines","url":"https://sigma.world/summits/asia/","flagship":false,"confirmed":false},
+    {"name":"SBC Summit Canada 2027","dateStart":"2027-06-15","dateEnd":"2027-06-17","location":"Toronto, Canada (Metro Toronto Convention Centre)","url":"https://sbcevents.com/sbc-summit-canada/","flagship":false,"confirmed":true},
+    {"name":"Affiliate World Europe 2027","dateStart":"2027-07-01","dateEnd":null,"dateLabel":"7月（確切日期待公布）","location":"地點待公布（2026 年於布達佩斯）","url":"https://affiliateworldconferences.com/","flagship":false,"confirmed":false},
+    {"name":"iGB L!VE London 2027","dateStart":"2027-07-07","dateEnd":"2027-07-08","location":"London, UK","url":"https://www.igblive.com/","flagship":true,"confirmed":true},
+    {"name":"SBC Summit Americas 2027","dateStart":"2027-09-01","dateEnd":null,"dateLabel":"9月（確切日期待公布）","location":"Fort Lauderdale, USA","url":"https://sbcevents.com/","flagship":false,"confirmed":false},
+    {"name":"SiGMA North America 2027","dateStart":"2027-09-01","dateEnd":null,"dateLabel":"9月（確切日期待公布）","location":"Mexico City, Mexico","url":"https://sigma.world/summits/north-america/","flagship":false,"confirmed":false},
+    {"name":"SBC Summit 2027（全球旗艦展）","dateStart":"2027-09-21","dateEnd":"2027-09-23","location":"Lisbon, Portugal","url":"https://sbcevents.com/sbc-summit/","flagship":true,"confirmed":true},
+    {"name":"G2E 2027 Las Vegas","dateStart":"2027-09-27","dateEnd":"2027-09-30","location":"Las Vegas, USA","url":"https://www.globalgamingexpo.com/","flagship":true,"confirmed":true},
+    {"name":"SiGMA World（歐洲旗艦展）2027","dateStart":"2027-10-01","dateEnd":null,"dateLabel":"10-11月（確切日期待公布）","location":"地點待公布","url":"https://sigma.world/","flagship":true,"confirmed":false},
+    {"name":"SiGMA South Asia 2027","dateStart":"2027-11-29","dateEnd":null,"dateLabel":"11-12月（確切日期待官網公布）","location":"Colombo, Sri Lanka","url":"https://sigma.world/summits/south-asia/","flagship":false,"confirmed":false,"note":"2027 年度尚未正式公布，比照往例（2026 場次為 11/30–12/2）預估"}
+  ];
+
+  var state = { flagshipOnly: false, hidePast: true, query: "" };
+  var listEl = document.getElementById("list");
+
+  function todayISO() {
+    var d = new Date();
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  }
+  function fmtRange(startISO, endISO) {
+    if (!startISO) return "";
+    var s = new Date(startISO + "T00:00:00");
+    var sm = s.getMonth() + 1, sd = s.getDate();
+    if (!endISO || endISO === startISO) return sm + "/" + sd;
+    var e = new Date(endISO + "T00:00:00");
+    var em = e.getMonth() + 1, ed = e.getDate();
+    if (em === sm) return sm + "/" + sd + "–" + ed;
+    return sm + "/" + sd + "–" + em + "/" + ed;
+  }
+  function monthLabel(iso) {
+    var d = new Date(iso + "T00:00:00");
+    return d.getFullYear() + " 年 " + (d.getMonth() + 1) + " 月";
+  }
+  function escapeHtml(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function render() {
+    var today = todayISO();
+    var q = state.query.trim().toLowerCase();
+    var docs = EVENTS.filter(function (e) {
+      if (state.flagshipOnly && !e.flagship) return false;
+      var endOrStart = e.dateEnd || e.dateStart;
+      if (state.hidePast && endOrStart < today) return false;
+      if (q) {
+        var hay = (e.name + " " + e.location).toLowerCase();
+        if (hay.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+
+    if (!docs.length) {
+      listEl.innerHTML = '<div class="empty">沒有符合條件的展會</div>';
+      return;
+    }
+
+    var groups = {}, order = [];
+    docs.forEach(function (e) {
+      var key = e.dateStart.slice(0, 7);
+      if (!groups[key]) { groups[key] = []; order.push(key); }
+      groups[key].push(e);
+    });
+    order.sort();
+
+    var html = "";
+    order.forEach(function (key) {
+      html += '<section class="month-group"><div class="month-label">' + monthLabel(key + "-01") + "</div>";
+      groups[key].forEach(function (e) {
+        var isPast = (e.dateEnd || e.dateStart) < today;
+        var dateText = e.dateLabel || fmtRange(e.dateStart, e.dateEnd);
+        html += '<article class="row' + (e.flagship ? " flagship" : "") + (isPast ? " past" : "") + '">';
+        html += '<div class="datecol"><span class="d">' + escapeHtml(dateText) + "</span>";
+        html += '<span class="badge ' + (e.confirmed ? "confirmed" : "tbc") + '">' + (e.confirmed ? "已確認" : "日期待定") + "</span></div>";
+        html += '<div class="maincol"><div class="name-line"><span class="name">' + escapeHtml(e.name) + "</span>";
+        if (e.flagship) html += '<span class="flag-tag">★ 旗艦展</span>';
+        html += '</div><span class="loc">' + escapeHtml(e.location) + "</span>";
+        if (e.note) html += '<span class="note">' + escapeHtml(e.note) + "</span>";
+        html += "</div>";
+        html += '<div class="actions"><a class="icon-btn" href="' + escapeHtml(e.url) + '" target="_blank" rel="noopener noreferrer" title="官方網站" aria-label="前往官方網站"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></div>';
+        html += "</article>";
+      });
+      html += "</section>";
+    });
+    listEl.innerHTML = html;
+  }
+
+  document.getElementById("search").addEventListener("input", function (e) { state.query = e.target.value; render(); });
+  document.getElementById("toggle-flagship").addEventListener("click", function () {
+    state.flagshipOnly = !state.flagshipOnly;
+    this.classList.toggle("active", state.flagshipOnly);
+    render();
+  });
+  document.getElementById("toggle-past").addEventListener("click", function () {
+    state.hidePast = !state.hidePast;
+    this.classList.toggle("active", state.hidePast);
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
