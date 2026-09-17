@@ -192,6 +192,9 @@
       groups[key].push(e);
     });
     order.sort();
+    order.forEach(function (key) {
+      groups[key].sort(function (a, b) { return a.dateStart < b.dateStart ? -1 : (a.dateStart > b.dateStart ? 1 : 0); });
+    });
 
     var html = "";
     order.forEach(function (key) {
