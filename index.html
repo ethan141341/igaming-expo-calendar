@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>iGaming 展會通行證</title>
-<meta name="description" content="2026年11月至2027年12月全球 iGaming 旗艦展與主要品牌區域場清單，官方連結一鍵直達。">
+<meta name="description" content="2026年9月至2027年12月全球 iGaming 旗艦展與主要品牌區域場清單，官方連結一鍵直達。">
 <style>
   body { margin: 0; }
   :root {
@@ -90,7 +90,7 @@
   <header>
     <div class="eyebrow">iGaming Industry Circuit · 2026–2027</div>
     <h1>全球 iGaming 展會通行證</h1>
-    <p class="sub">2026 年 11 月至 2027 年 12 月全球 iGaming 旗艦展與主要品牌（SiGMA / SBC / Affiliate World）區域場清單，官方連結一鍵直達。</p>
+    <p class="sub">2026 年 9 月至 2027 年 12 月全球 iGaming 旗艦展與主要品牌（SiGMA / SBC / Affiliate World）區域場清單，官方連結一鍵直達。</p>
   </header>
 
   <div class="toolbar">
@@ -104,7 +104,7 @@
 
   <main id="list"></main>
 
-  <p class="snapshot-note">此為唯讀分享快照，資料更新於 2026-11-01（台北時間）。這份清單會持續維護，若需要最新版本歡迎跟提供連結的人索取。</p>
+  <p class="snapshot-note">此為唯讀分享快照，資料更新於 2026-11-03（台北時間）。這份清單會持續維護，若需要最新版本歡迎跟提供連結的人索取。</p>
 </div>
 
 <script>
@@ -112,24 +112,27 @@
   "use strict";
 
   var EVENTS = [
+    {"name":"SiGMA North America 2026","dateStart":"2026-09-01","dateEnd":"2026-09-03","location":"Mexico City, Mexico","url":"https://sigma.world/summits/north-america/","flagship":false,"confirmed":true},
+    {"name":"Affiliate World Americas (Cancún) 2026","dateStart":"2026-09-07","dateEnd":"2026-09-08","location":"Cancún, Mexico","url":"https://affiliateworldconferences.com/americas","flagship":false,"confirmed":true},
+    {"name":"G2E（Global Gaming Expo）Las Vegas 2026","dateStart":"2026-09-28","dateEnd":"2026-10-01","location":"Las Vegas, USA","url":"https://www.globalgamingexpo.com/","flagship":true,"confirmed":true},
+    {"name":"SBC Summit Lisbon 2026","dateStart":"2026-09-29","dateEnd":"2026-10-01","location":"Lisbon, Portugal","url":"https://sbcevents.com/sbc-summit/","flagship":true,"confirmed":true},
     {"name":"SiGMA World Rome 2026","dateStart":"2026-11-02","dateEnd":"2026-11-05","location":"Rome, Italy","url":"https://sigma.world/summits/world/","flagship":true,"confirmed":true,"note":"首次移師義大利，SiGMA 全球歐洲旗艦展"},
     {"name":"SiGMA South Asia","dateStart":"2026-11-30","dateEnd":"2026-12-02","location":"Colombo, Sri Lanka (Cinnamon Life at City of Dreams)","url":"https://sigma.world/summits/south-asia/","flagship":false,"confirmed":true},
-    {"name":"Affiliate World Asia 2026","dateStart":"2026-12-09","dateEnd":"2026-12-10","location":"Bangkok, Thailand (Centara Grand & Bangkok Convention Centre)","url":"https://affiliateworldconferences.com/asia","flagship":false,"confirmed":true},
+    {"name":"Affiliate World Asia 2026","dateStart":"2026-12-09","dateEnd":"2026-12-10","location":"Bangkok, Thailand (Centara Grand & Bangkok Convention Centre, CentralWorld)","url":"https://affiliateworldconferences.com/asia","flagship":false,"confirmed":true},
     {"name":"ICE Barcelona 2027","dateStart":"2027-01-18","dateEnd":"2027-01-20","location":"Barcelona, Spain","url":"https://www.icegaming.com/","flagship":true,"confirmed":true,"note":"全球最大 iGaming 旗艦展"},
     {"name":"iGB Affiliate Barcelona 2027","dateStart":"2027-01-19","dateEnd":"2027-01-20","location":"Barcelona, Spain","url":"https://barcelona.igbaffiliate.com/","flagship":true,"confirmed":true},
     {"name":"SiGMA Africa 2027","dateStart":"2027-02-15","dateEnd":"2027-02-17","location":"Cape Town, South Africa","url":"https://sigma.world/summits/africa/","flagship":false,"confirmed":true},
-    {"name":"Global Game Connect (GGC) 2027","dateStart":"2027-03-24","dateEnd":"2027-03-25","location":"Colombo, Sri Lanka (Cinnamon Life)","url":"https://ggcgame.com/zh-tw","flagship":false,"confirmed":true,"note":"每年只辦一場（3月），12月的斯里蘭卡場次是另一個活動 SiGMA South Asia，不是 GGC"},
     {"name":"SBC Summit Rio 2027","dateStart":"2027-03-02","dateEnd":"2027-03-04","location":"Rio de Janeiro, Brazil","url":"https://sbcevents.com/sbc-summit-rio/","flagship":true,"confirmed":true},
-    {"name":"SiGMA Eurasia 2027","dateStart":"2027-03-15","dateEnd":"2027-03-17","location":"Dubai, UAE (Festival Arena, Dubai Festival City)","url":"https://sigma.world/eurasia/","flagship":false,"confirmed":true},
+    {"name":"Global Game Connect (GGC) 2027","dateStart":"2027-03-24","dateEnd":"2027-03-25","location":"Colombo, Sri Lanka (Cinnamon Life)","url":"https://ggcgame.com/zh-tw","flagship":false,"confirmed":true,"note":"每年只辦一場（3月），12月的斯里蘭卡場次是另一個活動 SiGMA South Asia，不是 GGC"},
     {"name":"BiS SiGMA South America 2027","dateStart":"2027-04-05","dateEnd":"2027-04-08","location":"São Paulo, Brazil","url":"https://sigma.world/summits/south-america/","flagship":false,"confirmed":true},
     {"name":"SBC Summit Europe 2027（原 SBC Summit Malta）","dateStart":"2027-04-19","dateEnd":"2027-04-21","location":"Amsterdam, Netherlands (RAI Amsterdam)","url":"https://sbcevents.com/sbc-summit-europe/","flagship":true,"confirmed":true,"note":"2027 起由 SBC Summit Malta 改名並移師阿姆斯特丹"},
     {"name":"SiGMA Europe Malta 2027","dateStart":"2027-05-03","dateEnd":"2027-05-05","location":"Ta' Qali, Malta (MFCC)","url":"https://sigma.world/summits/europe/","flagship":false,"confirmed":true,"note":"與 SBC Summit Europe（阿姆斯特丹）是兩個不同活動"},
     {"name":"G2E Asia 2027","dateStart":"2027-05-18","dateEnd":"2027-05-20","location":"Macau","url":"https://www.g2easia.com/","flagship":true,"confirmed":true},
-    {"name":"SiGMA Asia 2027","dateStart":"2027-05-31","dateEnd":"2027-06-03","location":"Manila, Philippines","url":"https://sigma.world/summits/asia/","flagship":false,"confirmed":true},
+    {"name":"SiGMA Asia 2027","dateStart":"2027-06-01","dateEnd":null,"dateLabel":"6月（確切日期待公布）","location":"Manila, Philippines","url":"https://sigma.world/summits/asia/","flagship":false,"confirmed":false},
     {"name":"SBC Summit Canada 2027","dateStart":"2027-06-15","dateEnd":"2027-06-17","location":"Toronto, Canada (Metro Toronto Convention Centre)","url":"https://sbcevents.com/sbc-summit-canada/","flagship":false,"confirmed":true},
     {"name":"Affiliate World Europe 2027","dateStart":"2027-07-01","dateEnd":null,"dateLabel":"7月（確切日期待公布）","location":"地點待公布（2026 年於布達佩斯）","url":"https://affiliateworldconferences.com/europe","flagship":false,"confirmed":false},
     {"name":"iGB L!VE London 2027","dateStart":"2027-07-07","dateEnd":"2027-07-08","location":"London, UK","url":"https://www.igblive.com/","flagship":true,"confirmed":true},
-    {"name":"SBC Summit Americas 2027","dateStart":"2027-09-01","dateEnd":null,"dateLabel":"日期待公布（TBA）","location":"Fort Lauderdale, Florida, USA (Broward County Convention Center)","url":"https://sbcevents.com/sbc-summit-americas/","flagship":false,"confirmed":false,"note":"官網僅標示 Date: TBA，未公布月份；dateStart 為排序用佔位"},
+    {"name":"SBC Summit Americas 2027","dateStart":"2027-09-01","dateEnd":null,"dateLabel":"9月（確切日期待公布）","location":"Fort Lauderdale, Florida, USA","url":"https://sbcevents.com/sbc-summit-americas/","flagship":false,"confirmed":false},
     {"name":"SiGMA North America 2027","dateStart":"2027-09-01","dateEnd":null,"dateLabel":"9月（確切日期待公布）","location":"Mexico City, Mexico","url":"https://sigma.world/summits/north-america/","flagship":false,"confirmed":false},
     {"name":"SBC Summit 2027（全球旗艦展）","dateStart":"2027-09-21","dateEnd":"2027-09-23","location":"Lisbon, Portugal","url":"https://sbcevents.com/sbc-summit/","flagship":true,"confirmed":true},
     {"name":"G2E 2027 Las Vegas","dateStart":"2027-09-27","dateEnd":"2027-09-30","location":"Las Vegas, USA","url":"https://www.globalgamingexpo.com/","flagship":true,"confirmed":true},
